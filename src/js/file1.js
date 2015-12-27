@@ -1,5 +1,5 @@
 (function () {
-   var name = 'Vladislav';
+   var name = 'Vladislav Dekov';
    
    console.log( 'Hello ' + name );
 })();
