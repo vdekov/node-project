@@ -11,6 +11,8 @@ var paths = {
    css : './src/css/**/*.css'
 };
 
+var dist_folder = './dist/';
+
 gulp.task( 'jshint', function () {
    return gulp.src([
             './Gulpfile.js',
@@ -23,19 +25,19 @@ gulp.task( 'jshint', function () {
 gulp.task( 'process-scripts', [ 'jshint' ], function () {
    return gulp.src( paths.js )
          .pipe( concat( 'main.js' ) )
-         .pipe( gulp.dest( './dist/' ) )
+         .pipe( gulp.dest( dist_folder ) )
          .pipe( rename( { suffix: '.min' } ) )
          .pipe( uglify() )
-         .pipe( gulp.dest( './dist/' ) );
+         .pipe( gulp.dest( dist_folder ) );
 });
 
 gulp.task( 'process-styles', function () {
    return gulp.src( paths.css )
          .pipe( concat( 'main.css' ) )
-         .pipe( gulp.dest( './dist/' ) )
+         .pipe( gulp.dest( dist_folder ) )
          .pipe( minifycss() )
          .pipe( rename( { suffix: '.min' } ) )
-         .pipe( gulp.dest( './dist/' ) );
+         .pipe( gulp.dest( dist_folder ) );
 });
 
 gulp.task( 'default', [ 'process-scripts', 'process-styles' ], function () {
