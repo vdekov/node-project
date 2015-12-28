@@ -15,7 +15,7 @@ var dist_folder = './dist/';
 
 gulp.task( 'jshint', function () {
    return gulp.src([
-            './Gulpfile.js',
+            './*.js',
             paths.js
          ])
          .pipe( jshint() )
@@ -41,8 +41,6 @@ gulp.task( 'process-styles', function () {
 });
 
 gulp.task( 'default', [ 'process-scripts', 'process-styles' ], function () {
-      
+   gulp.watch( paths.js, [ 'process-scripts' ] );
+   gulp.watch( paths.css, [ 'process-styles' ] );
 });
-
-gulp.watch( paths.js, [ 'process-scripts' ] );
-gulp.watch( paths.css, [ 'process-styles' ] );
