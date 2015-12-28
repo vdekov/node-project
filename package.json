@@ -1,12 +1,16 @@
 {
-  "name": "test-dir",
+  "name": "node-project",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vdekov/node-project.git"
+  },
+  "author": "Vladislav Dekov",
   "license": "ISC",
   "devDependencies": {
     "express": "^4.13.3",
