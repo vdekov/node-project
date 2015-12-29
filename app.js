@@ -1,20 +1,18 @@
+var compression = require( 'compression' );
 var express = require( 'express' );
 var app = express();
+
+// Use Gzip compression
+app.use( compression() );
 
 // Use /dist folder to load static files
 app.use( express.static( __dirname + '/dist' ) );
 
-// Get the request timestamp in the middleware
-app.use( function ( request, response, next ) {
-   request.requestTime = Date();
-   next();
-});
-
 // Handles the 'homepage' path
 app.get( '/', function ( request, response ) {
-   var responseText = 'Hello world!<br/>';
-   responseText += 'Requested at ' + request.requestTime;
-   response.send( responseText );
+   response.sendFile( 'index.html', {
+      root : __dirname + '/views/'
+   });
 });
 
 // Create a middleware that handles a response for the 404 page
